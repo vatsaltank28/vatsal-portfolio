@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vatsal Tank | Portfolio</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e6ecf5, #f8fbff);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a192f, #112240);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 15px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            margin: 10px 0 5px;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 18px;
+            color: #ccd6f6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+
+            /* Animation initial state */
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* Visible state when scrolling */
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #0a192f;
+            margin-bottom: 15px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #e6ecf5;
+            padding: 8px 14px;
+            margin: 6px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 10px 10px 0 0;
+            padding: 10px 16px;
+            background: #0a192f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .links a:hover {
+            background: #112240;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0a192f;
+            color: white;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 26px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="profile.jpg" alt="Vatsal Tank">
+    <h1>Vatsal Tank</h1>
+    <p><span id="typing"></span></p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>About Me</h2>
+        <p>
+            I am currently pursuing a degree in Computer Engineering at Shri Bhagubhai Mafatlal Polytechnic College.
+            I am passionate about learning new technologies and continuously improving my programming and problem-solving skills.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Education</h2>
+        <p>
+            <strong>Bachelor of Engineering – Computer Engineering</strong><br>
+            Shri Bhagubhai Mafatlal Polytechnic College<br>
+            Currently Pursuing
+        </p>
+        <p>
+            Cleared CET Entrance Examination
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript (Beginner)</span>
+            <span>Git & GitHub</span>
+            <span>Problem Solving</span>
+            <span>Data Structures (Learning)</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Currently Learning</h2>
+        <p>
+            • Advanced JavaScript Concepts<br>
+            • Web Development Projects<br>
+            • Version Control using Git
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Projects</h2>
+        <p>• Personal Portfolio Website</p>
+        <p>• Basic Calculator (JavaScript Project)</p>
+        <p>More projects coming soon as I continue my development journey.</p>
+    </div>
+
+    <div class="card">
+        <h2>Contact & Links</h2>
+        <p><strong>Email:</strong> vatsaltank28@gmail.com</p>
+
+        <div class="links">
+            <a href="https://github.com/vatsaltank28" target="_blank">GitHub Profile</a>
+            <a href="https://in.linkedin.com/in/vatsal-tank-979a4328b" target="_blank">LinkedIn Profile</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Vatsal Tank | Portfolio Website
+</footer>
+
+<script>
+/* Typing Animation */
+const text = "Computer Engineering Student | Aspiring Software Developer | Web Development Enthusiast";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+window.onload = function() {
+    typeEffect();
+    revealOnScroll();
+};
+
+/* Scroll Reveal Animation */
+function revealOnScroll() {
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+}
+</script>
+
+</body>
+</html>
